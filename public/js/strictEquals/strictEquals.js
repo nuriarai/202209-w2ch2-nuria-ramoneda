@@ -1,22 +1,17 @@
-const strictEquals = (number1, number2) => {
-  let result;
-  if (Number.isNaN(number1) && Number.isNaN(number2)) {
-    result = false;
-    return `Result: ${number1} / ${number2} : ${result}`;
+const strictEquals = (value1, value2) => {
+  if (Number.isNaN(value1) && Number.isNaN(value2)) {
+    return false;
   }
 
-  if (Object.is(0, number1) && Object.is(-0, number2)) {
-    result = true;
-    return `Result: ${number1} / ${number2} : ${result}`;
+  if (Object.is(0, value1) && Object.is(-0, value2)) {
+    return true;
   }
 
-  if (Object.is(-0, number1) && Object.is(0, number2)) {
-    result = true;
-    return `Result: ${number1} / ${number2} : ${result}`;
+  if (Object.is(-0, value1) && Object.is(0, value2)) {
+    return true;
   }
 
-  result = Object.is(number1, number2);
-  return `Result: ${number1} / ${number2} : ${result}`;
+  return Object.is(value1, value2);
 };
 
 export default strictEquals;
